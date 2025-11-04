@@ -128,30 +128,8 @@ function openModal(item) {
 // Fetch APOD data for 9 consecutive days from a selected start date
 function fetchImages() {
 	showLoading();
-	// Ask user for a start date
-	let start = prompt('Enter start date (YYYY-MM-DD):', '2022-01-01');
-	if (!start) {
-		document.getElementById('gallery').innerHTML = '<div class="placeholder"><p>No date selected.</p></div>';
-		return;
-	}
-	// Calculate end date (8 days after start)
-	let startDate = new Date(start);
-	if (isNaN(startDate.getTime())) {
-		document.getElementById('gallery').innerHTML = '<div class="placeholder"><p>Invalid date format.</p></div>';
-		return;
-	}
-	let endDate = new Date(startDate);
-	endDate.setDate(startDate.getDate() + 8);
-	// Format dates as YYYY-MM-DD
-	function formatDate(d) {
-		return d.toISOString().slice(0, 10);
-	}
-	let startStr = formatDate(startDate);
-	let endStr = formatDate(endDate);
-
-	// Build API URL
-	const url = `${NASA_APOD_URL}?api_key=${NASA_API_KEY}&start_date=${startStr}&end_date=${endStr}`;
-
+	// Use the provided static JSON URL
+	const url = 'https://cdn.jsdelivr.net/gh/GCA-Classroom/apod/data.json';
 	fetch(url)
 		.then(res => res.json())
 		.then(data => {
@@ -160,7 +138,7 @@ function fetchImages() {
 				return;
 			}
 			if (data.length === 0) {
-				document.getElementById('gallery').innerHTML = '<div class="placeholder"><p>No images found for this range.</p></div>';
+				document.getElementById('gallery').innerHTML = '<div class="placeholder"><p>No images found.</p></div>';
 				return;
 			}
 			createGallery(data);
