@@ -264,12 +264,49 @@ body {
   to { opacity: 1; }
 }
 
-/* Responsive */
+/* Responsive Design Enhancements */
+@media (max-width: 900px) {
+  .container {
+    max-width: 98vw;
+    padding: 1.2rem 0.5rem 2rem 0.5rem;
+  }
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 600px) {
   .container {
-    padding: 1rem 0.3rem 1.5rem 0.3rem;
+    padding: 0.7rem 0.1rem 1rem 0.1rem;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .site-header h1 {
+    font-size: 1.5rem;
+  }
+  .logo {
+    width: 40px;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+  .gallery-item {
+    min-height: 220px;
+  }
+  .gallery-img {
+    height: 120px;
   }
   .modal-content {
-    padding: 1rem 0.3rem 1rem 0.3rem;
+    padding: 0.7rem 0.1rem 0.7rem 0.1rem;
+    max-width: 99vw;
+    font-size: 0.98rem;
+  }
+  .modal-img {
+    max-height: 180px;
+  }
+  .modal-video-wrapper {
+    aspect-ratio: 16/10;
   }
 }
