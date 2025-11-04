@@ -3,22 +3,21 @@
 
 body {
   font-family: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
-  background: url('https://t3.ftcdn.net/jpg/14/60/23/66/360_F_1460236627_2sMw0OeTm4tjQxHGBhrCz2ermaSPnW6p.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
+  background: #fff;
+  color: #1565c0;
   margin: 0;
   min-height: 100vh;
   position: relative;
 }
 
-body::before {
+/* body::before {
   content: '';
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(11, 12, 16, 0.82); /* dark overlay for readability */
+  background: rgba(11, 12, 16, 0.82); 
   z-index: 0;
   pointer-events: none;
-}
+} */
 
 .container {
   position: relative;
